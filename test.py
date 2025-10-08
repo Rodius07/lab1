@@ -1,19 +1,18 @@
 import os
 import time
 
-Yellow = '\033[43m'
-Red = '\033[41m'
-Green = '\033[42m'
-Black = '\033[47m'
-Reset = '\033[0m'
+ESC = '\033['
+YELLOW = f'{ESC}43m'
+RED = f'{ESC}41m'
+GREEN = f'{ESC}42m'
+BLACK = f'{ESC}47m'
+RESET = f'{ESC}0m'
 
-print("\033[?25l", end="")
+print(f"{ESC}?25l", end="")  # Скрыть курсор
 
 while True:
-    for color in [Red,Green,Yellow]:
-        for i in range(8): print(f'{color}{' '*8}{Reset}')
+    for color in [RED, GREEN, YELLOW]:
+        for _ in range(8):
+            print(f"{color}{' ' * 8}{RESET}")
         time.sleep(0.1)
         os.system("clear")
-
-    
-
